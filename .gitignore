@@ -4,5 +4,5 @@
 **/.DS_Store
 
 apache/www/lr-app/*
-mariadb/initdb
-mariadb/mysql
+mysql/initdb
+mysql/mysql
