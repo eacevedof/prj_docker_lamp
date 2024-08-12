@@ -26,6 +26,7 @@ RUN composer --version
 
 COPY ini/xdebug.ini /usr/local/etc/php/conf.d
 COPY .bashrc /root/.bashrc
+RUN sed -i 's/\r$//' /root/.bashrc
 
 # Copy virtual host files
 COPY vhosts/lr-apps.conf /etc/apache2/sites-available/lr-apps.conf

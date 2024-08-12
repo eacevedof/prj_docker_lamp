@@ -20,13 +20,14 @@
 # ===========
 # @eaf
 # ===========
-export PS1="\[\e[38;5;196m\]\u\[\e[38;5;202m\]@\[\e[38;5;208m\]\h \[\e[38;5;220m\]\w \[\033[0m\]$ "
+export PS1="\[\e[38;5;46m\]\u\[\e[38;5;190m\]@\[\e[38;5;121m\]\h \[\e[38;5;195m\]\w \[\033[0m\]$ "
 
 alias home='cd $HOME'
-alias ll='ls $LS_OPTIONS -l'
+alias ll='ls -lat'
 alias ld='ls -lat | grep ^d'
-alias tmp='cd $HOME/tmp'
-alias www='cd /var/www'
-alias tmp='cd $HOME/tmp'
 
+alias www='cd /var/www'
+alias tmp='cd /tmp'
 alias app-reporting='cd /var/www/app-reporting'
+
+cd /var/www/app-reporting
