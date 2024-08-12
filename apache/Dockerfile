@@ -24,6 +24,9 @@ RUN rm /tmp/composer-setup.php
 # Verify Composer installation
 RUN composer --version
 
+COPY ini/xdebug.ini /usr/local/etc/php/conf.d
+COPY .bashrc /root/.bashrc
+
 # Copy virtual host files
 COPY vhosts/lr-apps.conf /etc/apache2/sites-available/lr-apps.conf
 # Enable the virtual hosts

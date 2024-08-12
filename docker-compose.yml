@@ -5,7 +5,11 @@ services:
     build: ./apache
     container_name: cont-lr-apache
     hostname: lr-apache
-
+    environment:
+      TZ: "UTC"
+      PHP_IDE_CONFIG: serverName=ServXdebug
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9005
     ports:
       - "8080:8080"
       - "8090:8090"
