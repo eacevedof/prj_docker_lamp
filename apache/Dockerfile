@@ -3,7 +3,9 @@ FROM php:8.3.9-apache
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
     && apt-get install -y libicu-dev zlib1g-dev libpng-dev libzip-dev \
-    && docker-php-ext-install intl pdo pdo_mysql gd zip
+    && docker-php-ext-install intl pdo pdo_mysql gd zip \
+    && pecl install xdebug \
+    && docker-php-ext-enable --ini-name 05-opcache.ini opcache xdebug
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_HOME=/composer
