@@ -29,7 +29,10 @@ RUN rm /tmp/composer-setup.php
 # Verify Composer installation
 RUN composer --version
 
-#COPY ini/xdebug.ini /usr/local/etc/php/conf.d
-#COPY .bashrc /root/.bashrc
-#RUN sed -i 's/\r$//' /root/.bashrc
+COPY ./xdebug.ini /usr/local/etc/php/conf.d
+
+RUN mv /root/.bashrc /root/.bashrc.bak
+COPY ./.bashrc /root/.bashrc
+RUN sed -i 's/\r$//' /root/.bashrc
+
 
