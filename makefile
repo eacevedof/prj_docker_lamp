@@ -27,6 +27,9 @@ ssh-apache: ## connect to container
 ssh-mariadb: ## connect to container
 	docker exec -it --user root cont-lr-mariadb bash
 
+restart-apache: ## restart prj_docker_lamp-apache
+	docker restart cont-lr-apache
+
 start:  ## start container
 	docker-compose start
 
