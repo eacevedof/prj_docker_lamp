@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   apache:
     build: ./apache
@@ -26,14 +24,10 @@ services:
     build: ./mysql
     container_name: cont-lr-mysql
     hostname: lr-mysql
-
     environment:
       MYSQL_ROOT_PASSWORD: root
-
     volumes:
-      # .env.DB_FOLDER=/Users/ioedu/projects/db_mysql
       - ./mysql/initdb:/docker-entrypoint-initdb.d/
       - ./mysql/mysql:/var/lib/mysql
-
     ports:
       - "3306:3306"

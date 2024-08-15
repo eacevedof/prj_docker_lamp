@@ -1,4 +1,6 @@
+# https://hub.docker.com/_/php/tags?page=2&page_size=&name=apache&ordering=
 FROM php:8.3.9-apache
+#FROM php:7.4-apache-buster #aqui no va xdebug
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
