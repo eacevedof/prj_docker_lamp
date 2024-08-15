@@ -3,7 +3,7 @@ FROM php:8.3.9-apache
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
     && apt-get install -y libicu-dev zlib1g-dev libpng-dev libzip-dev \
-    && docker-php-ext-install intl pdo pdo_mysql gd zip \
+    && docker-php-ext-install intl pdo pdo_mysql gd zip mysqli \
     && pecl install xdebug \
     && docker-php-ext-enable --ini-name opcache-xdebug.ini opcache xdebug
 
@@ -33,7 +33,9 @@ RUN sed -i 's/\r$//' /root/.bashrc
 # Copy virtual host files
 COPY vhosts/*.conf /etc/apache2/sites-available
 # Enable the virtual hosts
-RUN a2ensite lr-apps.conf
+RUN for site in /etc/apache2/sites-available/*.conf; do \
+    a2ensite $(basename $site); \
+done
 
 RUN a2enmod rewrite
 
