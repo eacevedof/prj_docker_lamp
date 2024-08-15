@@ -20,6 +20,13 @@ services:
       - ./apache/vhosts:/etc/apache2/sites-available
       - ./apache/www:/var/www
 
+  php-fpm-7.4:
+    build: ./fpm/7.4
+    container_name: cont-php-fpm-7.4
+    hostname: php-fpm-7.4
+    volumes:
+      - ./apache/www:/var/www
+
   mysql:
     build: ./mysql
     container_name: cont-lr-mysql
