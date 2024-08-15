@@ -8,3 +8,6 @@ mysql/mysql
 
 apache/www/*/
 !apache/www/html/
+
+apache/vhosts/*/
+!apache/vhosts/lr-apps.conf
