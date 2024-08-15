@@ -6,4 +6,5 @@
 mysql/initdb
 mysql/mysql
 
-apache/www/app-reporting
+apache/www/*/
+!apache/www/html/
