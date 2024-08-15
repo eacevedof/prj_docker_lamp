@@ -27,6 +27,13 @@ services:
     volumes:
       - ./apache/www:/var/www
 
+  php-fpm-8.3:
+    build: ./fpm/8.3
+    container_name: cont-php-fpm-8.3
+    hostname: php-fpm-8.3
+    volumes:
+      - ./apache/www:/var/www
+
   mysql:
     build: ./mysql
     container_name: cont-lr-mysql
