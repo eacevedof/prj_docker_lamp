@@ -31,7 +31,7 @@ COPY .bashrc /root/.bashrc
 RUN sed -i 's/\r$//' /root/.bashrc
 
 # Copy virtual host files
-COPY vhosts/lr-apps.conf /etc/apache2/sites-available/lr-apps.conf
+COPY vhosts/*.conf /etc/apache2/sites-available
 # Enable the virtual hosts
 RUN a2ensite lr-apps.conf
 

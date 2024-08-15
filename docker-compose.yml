@@ -13,6 +13,11 @@ services:
     ports:
       - "8080:8080"
       - "8090:8090"
+      - "3001:3001"
+      - "3002:3002"
+      - "3003:3003"
+      - "3004:3004"
+      - "3005:3005"
     volumes:
       - ./apache/vhosts:/etc/apache2/sites-available
       - ./apache/www:/var/www
