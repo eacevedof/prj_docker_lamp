@@ -9,7 +9,8 @@ services:
       PHP_XDEBUG_ENABLED: 1
       XDEBUG_CONFIG: client_host=host.docker.internal client_port=9005
     ports:
-      - "8080:8080"
+      - "8080:8080" # reporting
+      - "8081:8081" # ticketing
       - "8090:8090" # phpinfo
       - "3001:3001"
       - "3002:3002"
@@ -27,7 +28,11 @@ services:
     volumes:
       - ./apache/www:/var/www
     extra_hosts:
+      - "local-base:host-gateway"
+      - "local-1858:host-gateway"
       - "local-1859:host-gateway"
+      - "local-3455:host-gateway"
+      - "local-3848:host-gateway"
 
   php-fpm-8.3:
     build: ./fpm/8.3
@@ -35,6 +40,9 @@ services:
     hostname: php-fpm-8.3
     volumes:
       - ./apache/www:/var/www
+    extra_hosts:
+      - "reporting.local:host-gateway"
+      - "ticketing.local:host-gateway"
 
   mysql:
     build: ./mysql
