@@ -26,6 +26,8 @@ services:
     hostname: php-fpm-7.4
     volumes:
       - ./apache/www:/var/www
+    extra_hosts:
+      - "local-1859:host-gateway"
 
   php-fpm-8.3:
     build: ./fpm/8.3

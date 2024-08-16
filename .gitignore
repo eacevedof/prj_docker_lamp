@@ -12,3 +12,5 @@ apache/www/*/
 apache/vhosts/*
 !apache/vhosts/lr-apps.conf
 
+apache/www/html/ci-commons
+apache/www/html/ci-commons.zip
