@@ -10,7 +10,7 @@ services:
       XDEBUG_CONFIG: client_host=host.docker.internal client_port=9005
     ports:
       - "8080:8080" # reporting
-      - "8081:8081" # ticketing
+      - "8081:8081" # ticketing-api
       - "8090:8090" # phpinfo
       - "3001:3001" # base
       - "3002:3002"
