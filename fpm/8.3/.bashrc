@@ -28,6 +28,7 @@ alias ld='ls -lat | grep ^d'
 
 alias www='cd /var/www'
 alias tmp='cd /tmp'
-alias app-reporting='cd /var/www/app-reporting'
+
+alias app-reporting-api='cd /var/www/app-reporting-api'
 
 cd /var/www

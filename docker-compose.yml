@@ -42,7 +42,7 @@ services:
       - ./apache/www:/var/www
     extra_hosts:
       - "reporting.local:host-gateway"
-      - "ticketing.local:host-gateway"
+      - "ticketing-api.local:host-gateway"
 
   mysql:
     build: ./mysql
