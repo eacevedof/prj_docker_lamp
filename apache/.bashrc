@@ -26,8 +26,11 @@ alias home='cd $HOME'
 alias ll='ls -lat'
 alias ld='ls -lat | grep ^d'
 
-alias www='cd /var/www'
+alias www='cd /var/www && ls -lat | grep ^d'
 alias tmp='cd /tmp'
+
+#apps
 alias app-reporting='cd /var/www/app-reporting'
+alias app-ticketing-api='cd /var/www/app-ticketing-api'
 
 cd /var/www/
