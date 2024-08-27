@@ -41,11 +41,11 @@ apps() {
 }
 alias apps='apps'
 
-go-app() {
+app() {
     local app_name="$1"
     clear && cd "/var/www/app-$app_name/www/html" && ls
 }
-alias go-app='go-app'
+alias app='app'
 
 aliases() {
     grep '^alias ' ~/.bashrc | sed 's/alias \([^=]*\)=/alias \x1b[93m\1\x1b[0m=/' | sort
