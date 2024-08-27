@@ -29,10 +29,27 @@ alias l='ls $LS_OPTIONS -lA'
 alias ld='ls $LS_OPTIONS -d */'
 
 alias www='clear && cd /var/www && ld'
-alias tmp='clear && cd /tmp'
+alias tmp='clear && cd /tmp && ls'
+alias logs='clear && cd /var/www/logs && ls'
 
 #apps
 alias app-reporting='clear && cd /var/www/app-reporting && ld'
 alias app-ticketing-api='clear && cd /var/www/app-ticketing-api && ld'
+
+apps() {
+    ls -d /var/www/app-*/ | sed 's|/var/www/\(.*\)/|\x1b[92m\1\x1b[0m|' | awk '{for (i=9; i<=NF; i++) printf $i " "; print ""}' | sed 's|app-||' | sort
+}
+alias apps='apps'
+
+go-app() {
+    local app_name="$1"
+    clear && cd "/var/www/app-$app_name/www/html" && ls
+}
+alias go-app='go-app'
+
+aliases() {
+    grep '^alias ' ~/.bashrc | sed 's/alias \([^=]*\)=/alias \x1b[93m\1\x1b[0m=/' | sort
+}
+alias aliases='aliases'
 
 cd /var/www/

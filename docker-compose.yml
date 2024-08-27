@@ -11,7 +11,7 @@ services:
     ports:
       - "8080:8080" # reporting
       - "8081:8081" # ticketing-api
-      - "8082:8082" #
+      - "8082:8082" # freshdesk ??
       - "8083:8083" #
       - "8084:8084" #
       - "8085:8085" #
@@ -22,6 +22,7 @@ services:
       - "3003:3003"
       - "3004:3004"
       - "3005:3005"
+
     volumes:
       - ./apache/vhosts:/etc/apache2/sites-available
       - ./apache/www:/var/www
@@ -29,7 +30,7 @@ services:
   php-fpm-7.4:
     build: ./fpm/7.4
     container_name: cont-php-fpm-7.4
-    hostname: php-fpm-7.4
+    hostname: php-fpm-7-4
     volumes:
       - ./apache/www:/var/www
     extra_hosts:
@@ -42,7 +43,7 @@ services:
   php-fpm-8.3:
     build: ./fpm/8.3
     container_name: cont-php-fpm-8.3
-    hostname: php-fpm-8.3
+    hostname: php-fpm-8-3
     volumes:
       - ./apache/www:/var/www
     extra_hosts:
