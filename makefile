@@ -30,8 +30,8 @@ ssh-php74: ## connect to container cont-php-fpm-7.4
 ssh-php83: ## connect to container cont-php-fpm-8.3
 	docker exec -it --user root cont-php-fpm-8.3 bash
 
-ssh-mariadb: ## connect to container
-	docker exec -it --user root cont-lr-mariadb bash
+ssh-mysql: ## connect to container
+	docker exec -it --user root cont-lr-mysql bash
 
 restart-apache: ## restart apache
 	docker-compose restart apache
