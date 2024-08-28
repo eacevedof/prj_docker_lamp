@@ -54,8 +54,15 @@ alias aliases='aliases'
 
 cd /var/www/
 
+# =========== 8.3 only ===========
 artisan() {
     local arg="$1"
     php artisan "$arg"
 }
 alias artisan='artisan'
+
+lz() {
+    local arg="$1"
+    php artisan lz:"$arg"
+}
+alias lz='lz'
