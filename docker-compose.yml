@@ -31,6 +31,11 @@ services:
     build: ./fpm/7.4
     container_name: cont-php-fpm-7.4
     hostname: php-fpm-7-4
+    environment:
+      TZ: "UTC"
+      PHP_IDE_CONFIG: serverName=ServXdebug
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9005
     volumes:
       - ./apache/www:/var/www
     extra_hosts:
@@ -44,6 +49,11 @@ services:
     build: ./fpm/8.3
     container_name: cont-php-fpm-8.3
     hostname: php-fpm-8-3
+    environment:
+      TZ: "UTC"
+      PHP_IDE_CONFIG: serverName=ServXdebug
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9005
     volumes:
       - ./apache/www:/var/www
     extra_hosts:
