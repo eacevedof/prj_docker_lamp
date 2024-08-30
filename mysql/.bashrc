@@ -11,5 +11,5 @@ alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 alias ld='ls $LS_OPTIONS -d */'
 
-cd /etc/mysql/conf.d && ll
+cd /var/lib/mysql && ll && cat /etc/mysql/conf.d/my-custom.cnf
 

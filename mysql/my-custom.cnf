@@ -1,4 +1,4 @@
-# /etc/mysql/conf.d
+# /etc/mysql/conf.d/my-custom.cnf
 [mysqld]
 innodb_data_file_path = ibdata1:10M:autoextend
 innodb_autoextend_increment = 500M
