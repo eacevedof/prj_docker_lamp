@@ -7,8 +7,8 @@ mysql/initdb
 mysql/mysql
 mysql/tmp
 
-apache/www/*/
 apache/www/app-reporting
+apache/www/*/
 !apache/www/html/
 
 apache/vhosts/*
