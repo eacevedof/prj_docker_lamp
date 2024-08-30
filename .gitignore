@@ -8,6 +8,7 @@ mysql/mysql
 mysql/tmp
 
 apache/www/*/
+apache/www/app-reporting
 !apache/www/html/
 
 apache/vhosts/*
