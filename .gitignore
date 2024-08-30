@@ -5,6 +5,7 @@
 
 mysql/initdb
 mysql/mysql
+mysql/tmp
 
 apache/www/*/
 !apache/www/html/
