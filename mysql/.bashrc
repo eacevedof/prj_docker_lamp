@@ -11,9 +11,11 @@ alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 alias ld='ls $LS_OPTIONS -d */'
 
-alias sql='mysql -u root -proot -e "show databases;"'
+alias sql='clear && mysql -u root -proot'
 alias my-conf='clear && cd /etc/mysql && ll'
 alias my-data='clear && cd /var/lib/mysql && ll'
+alias my-vars='clear && mysql -u root -proot -e "show variables;" > /tmp/mysql-vars.sql && cat /tmp/mysql-vars.sql'
+alias tmp='clear && cd /tmp && ll'
 
 clear
 cat /etc/mysql/conf.d/my-8-0-24.cnf
