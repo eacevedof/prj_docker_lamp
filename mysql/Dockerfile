@@ -9,8 +9,9 @@ RUN apt-get update \
 
 RUN chmod -R 777 /var/lib/mysql
 RUN chmod -R 777 /tmp
-# RUN mkdir /duckdb/duckdb-cli
 
+
+# https://duckdb.org/docs/guides/file_formats/excel_import.html
 RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip -O /tmp/duckdb_cli.zip \
     && unzip /tmp/duckdb_cli.zip -d /duckdb \
     && sleep 3 \
