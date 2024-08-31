@@ -69,6 +69,8 @@ services:
     volumes:
       - ./mysql/initdb:/docker-entrypoint-initdb.d/
       - ./mysql/mysql:/var/lib/mysql
+      # - ./mysql/conf:/etc/mysql/
+
       - ./mysql/tmp:/tmp
       - ./mysql/duckdb:/duckdb
     ports:

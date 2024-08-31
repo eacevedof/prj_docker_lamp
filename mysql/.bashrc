@@ -20,6 +20,5 @@ alias duckdb='clear && cd /duckdb && ll'
 alias duckdb-cli='clear && cd /duckdb && ll && ./duckdb-cli'
 
 clear
-cat /etc/mysql/conf.d/my-8-0-24.cnf
 cd /etc/mysql && ll
 

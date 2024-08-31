@@ -3,6 +3,8 @@
 # mysqld --defaults-file=/etc/mysql/conf.d/my-8-0-24.cnf
 
 [mysqld]
+skip-grant-tables
+disable-log-bin=1
 innodb_data_file_path = ibdata1:10M:autoextend
 innodb_autoextend_increment = 500M
 tmpdir = /tmp
