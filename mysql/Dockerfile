@@ -9,7 +9,8 @@ RUN apt-get update \
 
 RUN chmod -R 777 /var/lib/mysql
 RUN chmod -R 777 /tmp
-
+RUN echo "disable-log-bin=1" >> /etc/mysql/my.cnf \
+    && echo "tmpdir=/tmp" >> /etc/mysql/my.cnf
 
 # https://duckdb.org/docs/guides/file_formats/excel_import.html
 RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip -O /tmp/duckdb_cli.zip \
@@ -18,4 +19,3 @@ RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-li
     && mv /duckdb/duckdb /duckdb/duckdb-cli
 
 COPY ./.bashrc /root/.bashrc
-COPY ./my-8-0-24.cnf /etc/mysql/conf.d/my-8-0-24.cnf

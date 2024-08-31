@@ -11,8 +11,8 @@ alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 alias ld='ls $LS_OPTIONS -d */'
 
-alias sql='clear && mysql -u root -proot'
-alias my-conf='clear && cd /etc/mysql && ll'
+alias my-root='clear && mysql -u root -proot'
+alias my-conf='clear && cd /etc/mysql && ll && cat /etc/mysql/my.cnf'
 alias my-data='clear && cd /var/lib/mysql && ll'
 alias my-vars='clear && mysql -u root -proot -e "show variables;" > /tmp/mysql-vars.sql && cat /tmp/mysql-vars.sql'
 alias tmp='clear && cd /tmp && ll'
@@ -20,6 +20,5 @@ alias duckdb='clear && cd /duckdb && ll'
 alias duckdb-cli='clear && cd /duckdb && ll && ./duckdb-cli'
 
 clear
-cat /etc/mysql/conf.d/my-8-0-24.cnf
 cd /etc/mysql && ll
 
