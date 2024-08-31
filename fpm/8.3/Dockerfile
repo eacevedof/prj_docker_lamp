@@ -1,8 +1,10 @@
 FROM php:8.3-fpm
 
-# Update package list and install dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+    && apt-get -y install --no-install-recommends \
+    -y jq vim wget unzip ca-certificates
+
+RUN apt-get install -y --no-install-recommends \
        libicu-dev \
        zlib1g-dev \
        libpng-dev \

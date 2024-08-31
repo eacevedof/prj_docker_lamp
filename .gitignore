@@ -6,6 +6,7 @@
 mysql/initdb
 mysql/mysql
 mysql/tmp
+mysql/duckdb
 
 apache/www/app-reporting
 apache/www/*/

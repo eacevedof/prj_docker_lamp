@@ -70,5 +70,6 @@ services:
       - ./mysql/initdb:/docker-entrypoint-initdb.d/
       - ./mysql/mysql:/var/lib/mysql
       - ./mysql/tmp:/tmp
+      - ./mysql/duckdb:/duckdb
     ports:
       - "3306:3306"
