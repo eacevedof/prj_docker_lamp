@@ -35,6 +35,7 @@ alias logs='clear && cd /var/www/logs && ls'
 #apps
 alias app-reporting='clear && cd /var/www/app-reporting && ld'
 alias app-ticketing-api='clear && cd /var/www/app-ticketing-api && ld'
+alias app-freshdesk-api='clear && cd /var/www/app-freshdesk-api && ld'
 
 apps() {
     ls -d /var/www/app-*/ | sed 's|/var/www/\(.*\)/|\x1b[92m\1\x1b[0m|' | awk '{for (i=9; i<=NF; i++) printf $i " "; print ""}' | sed 's|app-||' | sort
