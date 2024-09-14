@@ -32,6 +32,7 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php \
 RUN composer --version
 
 COPY ./xdebug-8.3.ini /usr/local/etc/php/conf.d
+COPY ./php-8.3.ini /usr/local/etc/php/conf.d
 
 RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
