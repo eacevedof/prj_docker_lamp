@@ -34,6 +34,9 @@ RUN composer --version
 COPY ./xdebug-8.3.ini /usr/local/etc/php/conf.d
 COPY ./php-8.3.ini /usr/local/etc/php/conf.d
 
+RUN touch /tmp/xdebug.log \
+    && chmod 777 /tmp/xdebug.log
+
 RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
 RUN sed -i 's/\r$//' /root/.bashrc
