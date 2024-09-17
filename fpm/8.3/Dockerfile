@@ -2,7 +2,7 @@ FROM php:8.3-fpm
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    -y jq vim wget unzip ca-certificates cron
+    -y jq vim wget unzip ca-certificates cron moreutils
 
 RUN apt-get install -y --no-install-recommends \
        libicu-dev \
