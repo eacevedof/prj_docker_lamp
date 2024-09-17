@@ -11,6 +11,9 @@ RUN chmod -R 777 /var/lib/mysql
 RUN chmod -R 777 /tmp
 RUN echo "disable-log-bin=1" >> /etc/mysql/my.cnf \
     && echo "tmpdir=/tmp" >> /etc/mysql/my.cnf \
+    && echo "net_read_timeout=600" >> /etc/mysql/my.cnf \
+    && echo "net_write_timeout=600" >> /etc/mysql/my.cnf \
+    && echo "max_allowed_packet=64M" >> /etc/mysql/my.cnf \
     && echo "sort_buffer_size=8M" >> /etc/mysql/my.cnf
 
 # https://duckdb.org/docs/guides/file_formats/excel_import.html

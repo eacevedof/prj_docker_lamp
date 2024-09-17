@@ -2,7 +2,7 @@ FROM php:7.4.33-fpm
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    -y jq vim wget unzip ca-certificates
+    -y jq vim wget unzip ca-certificates cron
 
 RUN apt-get install -y --no-install-recommends \
     libicu-dev zlib1g-dev libpng-dev libzip-dev \
@@ -15,3 +15,9 @@ COPY ./xdebug-7.4.ini /usr/local/etc/php/conf.d
 
 RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
+
+# Add a script to start cron and php-fpm
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
+CMD ["start.sh"]
