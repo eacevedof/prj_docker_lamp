@@ -15,9 +15,3 @@ COPY ./xdebug-7.4.ini /usr/local/etc/php/conf.d
 
 RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
-
-# Add a script to start cron and php-fpm
-COPY start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
-
-CMD ["start.sh"]
