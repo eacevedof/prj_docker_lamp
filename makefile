@@ -18,6 +18,12 @@ rebuild-all: ## rebuild all containers
 	docker-compose -f docker-compose.yml up -d --build --remove-orphans
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-apache: ## rebuild apache container
+	clear
+	docker-compose build apache
+	docker-compose up --no-deps -d apache
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-php83: ## rebuild php-fpm-8.3
 	clear
 	docker-compose up -d --build php-fpm-8.3
