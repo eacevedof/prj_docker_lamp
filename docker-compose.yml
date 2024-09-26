@@ -24,14 +24,18 @@ services:
       - "3004:3004"
       - "3005:3005" # dav
       - "3006:3006" # all-bva
-      - "3007:3007" # free
-      - "3008:3008" # free
-      - "3009:3009" # free
-      - "3010:3010" # free
+      - "3007:3007" # astprt
+      - "3008:3008" #
+      - "3009:3009" #
+      - "3010:3010" #
 
     volumes:
       - ./apache/vhosts:/etc/apache2/sites-available
       - ./apache/www:/var/www
+
+    extra_hosts:
+      - "reporting.local:host-gateway"
+      - "ticketing-api.local:host-gateway"
 
   php-fpm-7.4:
     build: ./fpm/7.4
@@ -50,6 +54,8 @@ services:
       - "local-1859:host-gateway"
       - "local-3455:host-gateway"
       - "local-3848:host-gateway"
+      - "local-allbbva:host-gateway"
+      - "local-3007:host-gateway"
 
   php-fpm-8.3:
     build: ./fpm/8.3
