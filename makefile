@@ -24,11 +24,15 @@ rebuild-apache: ## rebuild apache container
 	docker-compose up --no-deps -d apache
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-php74: ## rebuild php-fpm-7.4
+	clear
+	docker-compose up -d --build php-fpm-7.4
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-php83: ## rebuild php-fpm-8.3
 	clear
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
 
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
