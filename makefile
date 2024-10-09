@@ -34,6 +34,11 @@ rebuild-php83: ## rebuild php-fpm-8.3
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-deno: ## rebuild deno-dotlake
+	clear
+	docker-compose up -d --build deno-dotlake
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
 
