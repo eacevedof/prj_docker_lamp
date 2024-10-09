@@ -33,6 +33,7 @@ services:
     extra_hosts:
       - "reporting.local:host-gateway"
       - "ticketing-api.local:host-gateway"
+      - "host.docker.internal:host-gateway"
 
   php-fpm-7.4:
     build: ./fpm/7.4
@@ -50,6 +51,7 @@ services:
       - "local-3848:host-gateway"
       - "local-allbbva:host-gateway"
       - "local-3007:host-gateway"
+      - "host.docker.internal:host-gateway"
 
   php-fpm-8.3:
     build: ./fpm/8.3
@@ -62,6 +64,20 @@ services:
     extra_hosts:
       - "reporting.local:host-gateway"
       - "ticketing-api.local:host-gateway"
+      - "host.docker.internal:host-gateway"
+
+  deno-dotlake:
+    build: ./deno-dotlake
+    container_name: cont-deno-dotlake
+    hostname: deno-dotlake
+    environment:
+      TZ: "UTC"
+    volumes:
+      - ./www/app-dotlake:/app
+    ports:
+      - "5500:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   mysql:
     build: ./mysql
