@@ -54,6 +54,9 @@ ssh-php83: ## connect to container cont-php-fpm-8.3
 ssh-mysql: ## connect to container
 	docker exec -it --user root cont-lr-mysql bash
 
+ssh-dotlake: ## connect to dotlake container
+	docker exec -it --user root cont-deno-dotlake bash
+
 restart-apache: ## restart apache
 	docker-compose restart apache
 
