@@ -76,8 +76,7 @@ services:
     hostname: deno-dotlake
     environment:
       TZ: "UTC"
-    volumes:
-      - ./www/app-dotlake:/app
+      TOKEN: ${DOT_LAKE_TOKEN}
     ports:
       - "5500:80"
     extra_hosts:
