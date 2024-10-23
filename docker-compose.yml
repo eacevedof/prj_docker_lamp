@@ -71,7 +71,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   deno-dotlake:
-    build: ./deno-dotlake
+    build: ./deno
     container_name: cont-deno-dotlake
     hostname: deno-dotlake
     environment:

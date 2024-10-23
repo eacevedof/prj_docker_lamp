@@ -4,3 +4,5 @@ WORKDIR /app
 COPY www/app-dotlake/. /app
 
 CMD ["run", "--allow-all", "app.ts"]
+
+
