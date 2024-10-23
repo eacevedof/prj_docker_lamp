@@ -84,6 +84,20 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  deno-translator:
+    build: ./deno
+    container_name: cont-deno-translator
+    hostname: deno-translator
+    environment:
+      TZ: "UTC"
+      API_TRANSLATOR_TOKEN: ${GOOGLE_TRANSLATOR_TOKEN}
+    volumes:
+      - ./deno/www/app-translator:/app
+    ports:
+      - "5600:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   mysql:
     build: ./mysql
     container_name: cont-lr-mysql
