@@ -17,7 +17,7 @@ powershell -Command ^
     "$watcher = New-Object System.IO.FileSystemWatcher '%WATCH_DIR%';" ^
     "$watcher.IncludeSubdirectories = $true;" ^
     "$watcher.NotifyFilter = [System.IO.NotifyFilters]'FileName, LastWrite';" ^
-    "$action = { Write-Output 'Change detected: ' + $_.FullPath; Start-Process cmd -ArgumentList '/c %COMMAND%' };" ^
+    "$action = { Write-Output 'Change detected: ' + $_.FullPath; Start-Process cmd -ArgumentList '/c %COMMAND%' -WindowStyle Hidden };" ^
     "Register-ObjectEvent $watcher 'Changed' -Action $action;" ^
     "Register-ObjectEvent $watcher 'Created' -Action $action;" ^
     "Register-ObjectEvent $watcher 'Deleted' -Action $action;" ^
