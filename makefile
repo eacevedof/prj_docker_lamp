@@ -18,6 +18,12 @@ rebuild-all: ## rebuild all containers
 	docker-compose -f docker-compose.yml up -d --build --remove-orphans
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-dotlake: ## rebuild apache container
+	clear
+	docker-compose build deno-dotlake
+	docker-compose up --no-deps -d apache
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-apache: ## rebuild apache container
 	clear
 	docker-compose build apache

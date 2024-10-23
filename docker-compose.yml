@@ -77,8 +77,10 @@ services:
     environment:
       TZ: "UTC"
       TOKEN: ${DOT_LAKE_TOKEN}
+    volumes:
+      - ./deno/www/app-dotlake:/app
     ports:
-      - "5500:80"
+      - "5500:8080"
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
