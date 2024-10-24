@@ -90,7 +90,7 @@ services:
     hostname: deno-translator
     environment:
       TZ: "UTC"
-      API_TRANSLATOR_TOKEN: ${GOOGLE_TRANSLATOR_TOKEN}
+      GOOGLE_TRANSLATE_API_KEY: ${GOOGLE_TRANSLATE_API_KEY}
     volumes:
       - ./deno/www/app-translator:/app
     ports:
