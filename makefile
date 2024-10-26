@@ -60,6 +60,9 @@ ssh-php83: ## connect to container cont-php-fpm-8.3
 ssh-mysql: ## connect to container
 	docker exec -it --user root cont-lr-mysql bash
 
+ssh-pg: ## connect to container
+	docker exec -it --user root cont-db-postgres bash
+
 ssh-dotlake: ## connect to dotlake container
 	docker exec -it --user root cont-deno-dotlake bash
 

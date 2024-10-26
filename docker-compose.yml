@@ -111,3 +111,26 @@ services:
       - ./mysql/duckdb:/duckdb
     ports:
       - "3306:3306"
+
+  postgres:
+    build: ./postgres
+    restart: always
+    shm_size: 128mb
+    container_name: cont-db-postgres
+    hostname: db-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./postgres/postgresql/data:/var/lib/postgresql/data
+      - ./postgres/tmp:/tmp
+    ports:
+      - "5432:5432"
+
+  postgres-adm:
+    image: adminer
+    restart: always
+    container_name: cont-db-adminer
+    hostname: db-adminer
+    ports:
+      - 7000:8080

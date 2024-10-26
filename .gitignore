@@ -8,6 +8,9 @@ mysql/mysql
 mysql/tmp
 mysql/duckdb
 
+postgres/postgresql
+postgres/tmp
+
 apache/www/app-reporting
 apache/www/*/
 !apache/www/html/
