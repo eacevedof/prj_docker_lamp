@@ -14,12 +14,11 @@ services:
       - "8085:8085" #
       - "8086:8086" #
 
-      - "8090:8090" # yii-api
+      - "8090:8090" # phpinfo
       - "8091:8091" #
       - "8092:8092" #
       - "8093:8093" #
 
-      - "8090:8090" # phpinfo
       - "3001:3001" # base
       - "3002:3002" #
       - "3003:3003"
@@ -38,6 +37,7 @@ services:
     extra_hosts:
       - "reporting.local:host-gateway"
       - "ticketing-api.local:host-gateway"
+      - "yii-api.local:host-gateway"
       - "host.docker.internal:host-gateway"
 
   php-fpm-7.4:
@@ -73,6 +73,7 @@ services:
     extra_hosts:
       - "reporting.local:host-gateway"
       - "ticketing-api.local:host-gateway"
+      - "yii-api.local:host-gateway"
       - "host.docker.internal:host-gateway"
 
   deno-dotlake:
