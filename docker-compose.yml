@@ -28,7 +28,9 @@ services:
       - "3007:3007" # astprt
       - "3008:3008" #
       - "3009:3009" # tel-pd
-      - "3010:3010" #
+      - "3010:3010" # csr-ciber
+      - "3011:3011" #
+      - "3012:3012" #
 
     volumes:
       - ./apache/vhosts:/etc/apache2/sites-available
