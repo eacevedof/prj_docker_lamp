@@ -15,6 +15,7 @@ RUN echo "disable-log-bin=1" >> /etc/mysql/my.cnf \
     && echo "net_write_timeout=600" >> /etc/mysql/my.cnf \
     && echo "max_allowed_packet=64M" >> /etc/mysql/my.cnf \
     && echo "sort_buffer_size=8M" >> /etc/mysql/my.cnf \
+    && echo "secure_file_priv=/tmp" >> /etc/mysql/my.cnf \
     && echo "innodb_online_alter_log_max_size=1073741824" >> /etc/mysql/my.cnf
 
 # https://duckdb.org/docs/guides/file_formats/excel_import.html
