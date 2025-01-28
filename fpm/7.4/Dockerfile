@@ -11,6 +11,12 @@ RUN apt-get install -y --no-install-recommends \
 RUN pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
 
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+    COMPOSER_HOME=/composer
+RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php \
+    && php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm /tmp/composer-setup.php
+
 COPY ./xdebug-7.4.ini /usr/local/etc/php/conf.d
 
 RUN mv /root/.bashrc /root/.bashrc.bak
