@@ -18,6 +18,7 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php \
     && rm /tmp/composer-setup.php
 
 COPY ./xdebug-7.4.ini /usr/local/etc/php/conf.d
+COPY ./php-7.4.ini /usr/local/etc/php/conf.d
 
 RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
