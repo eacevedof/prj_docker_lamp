@@ -79,6 +79,7 @@ services:
       - "reporting.local:host-gateway"
       - "ticketing-api.local:host-gateway"
       - "yii-api.local:host-gateway"
+      - "mid-lznews.local:host-gateway"
       - "host.docker.internal:host-gateway"
 
   deno-dotlake:
