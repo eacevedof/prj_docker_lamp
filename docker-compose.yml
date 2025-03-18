@@ -82,33 +82,22 @@ services:
       - "mid-lznews.local:host-gateway"
       - "host.docker.internal:host-gateway"
 
-  deno-dotlake:
+  ubuntu-deno:
     build: ./deno
-    container_name: cont-deno-dotlake
-    hostname: deno-dotlake
+    container_name: cont-ubuntu-deno
+    hostname: ubuntu-deno
     environment:
       TZ: "UTC"
-      TOKEN: ${DOT_LAKE_TOKEN}
     volumes:
-      - ./deno/www/app-dotlake:/app
+      - ./deno/www:/www
     ports:
-      - "5500:8080"
+      # - "5500:5500"
+      - "5600:5600"
+      - "5700:5700"
+      - "5800:5800"
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  deno-translator:
-    build: ./deno
-    container_name: cont-deno-translator
-    hostname: deno-translator
-    environment:
-      TZ: "UTC"
-      GOOGLE_TRANSLATE_API_KEY: ${GOOGLE_TRANSLATE_API_KEY}
-    volumes:
-      - ./deno/www/app-translator:/app
-    ports:
-      - "5600:8080"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
   mysql:
     build: ./mysql
