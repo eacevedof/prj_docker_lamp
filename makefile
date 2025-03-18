@@ -18,12 +18,6 @@ rebuild-all: ## rebuild all containers
 	docker-compose -f docker-compose.yml up -d --build --remove-orphans
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
-rebuild-dotlake: ## rebuild apache container
-	clear
-	docker-compose build deno-dotlake
-	docker-compose up --no-deps -d apache
-	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
-
 rebuild-apache: ## rebuild apache container
 	clear
 	docker-compose build apache
@@ -40,9 +34,9 @@ rebuild-php83: ## rebuild php-fpm-8.3
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
-rebuild-deno: ## rebuild deno-dotlake
+rebuild-deno: ## rebuild ubuntu-deno
 	clear
-	docker-compose up -d --build deno-dotlake
+	docker-compose up -d --build ubuntu-deno
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 destroy-all: ## destroy container and image
@@ -63,8 +57,8 @@ ssh-mysql: ## connect to container
 ssh-pg: ## connect to container
 	docker exec -it --user root cont-db-postgres bash
 
-ssh-dotlake: ## connect to dotlake container
-	docker exec -it --user root cont-deno-dotlake bash
+ssh-deno: ## connect to deno container
+	docker exec -it --user root cont-ubuntu-deno bash
 
 restart-apache: ## restart apache
 	docker-compose restart apache
