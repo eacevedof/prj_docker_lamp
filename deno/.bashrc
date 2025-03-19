@@ -2,7 +2,7 @@
 # @eaf
 # ===========
 # https://robotmoon.com/bash-prompt-generator/
-export PS1="\[\e[38;5;46m\]\u\[\e[38;5;190m\]@\[\e[38;5;121m\]\h \[\e[38;5;195m\]\w \[\033[0m\]$ "
+export PS1="\[\e[38;5;165m\]\u\[\e[38;5;171m\]@\[\e[38;5;213m\]\h \[\e[38;5;219m\]\w \[\033[0m\]$ "
 
 alias home='cd $HOME'
 
