@@ -2,7 +2,7 @@ FROM php:7.4.33-fpm
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    -y jq vim wget unzip ca-certificates cron moreutils bsdmainutils build-essential git
+    -y jq vim wget unzip ca-certificates cron procps moreutils bsdmainutils build-essential git
 
 RUN apt-get install -y --no-install-recommends \
     libicu-dev zlib1g-dev libpng-dev libzip-dev \

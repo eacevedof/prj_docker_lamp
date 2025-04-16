@@ -7,7 +7,7 @@ FROM ankane/pgvector
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    -y jq vim curl wget unzip ca-certificates bsdmainutils build-essential git
+    -y jq vim curl wget unzip ca-certificates procps bsdmainutils build-essential git
 
 RUN chmod -R 777 /var/lib/postgresql
 RUN chmod -R 777 /tmp
