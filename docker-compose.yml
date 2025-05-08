@@ -32,8 +32,11 @@ services:
       - "3011:3011" # s-r-a
       - "3012:3012" # oc-seg
       - "3013:3013" # fza
-      - "3014:3014" # infusion
-      - "3015:3015" #
+      - "3014:3014" # inf.seg
+      - "3015:3015" # inf.ein
+      - "3016:3016" # anubis
+      - "3017:3017" #
+      - "3018:3018" #
 
     volumes:
       - ./apache/vhosts:/etc/apache2/sites-available
