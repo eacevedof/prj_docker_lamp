@@ -8,6 +8,9 @@ mysql/mysql
 mysql/tmp
 mysql/duckdb
 
+spark/tmp
+spark/duckdb
+
 postgres/postgresql
 postgres/tmp
 
