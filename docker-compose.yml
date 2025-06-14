@@ -133,6 +133,8 @@ services:
     volumes:
       - ./spark/tmp:/tmp
       - ./spark/duckdb:/duckdb
+      - ./spark/work:/home/jovyan/work
+
     ports:
       - "8888:8888"
       - "4040:4040"
