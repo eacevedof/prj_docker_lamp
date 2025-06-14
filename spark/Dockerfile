@@ -11,6 +11,6 @@ RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-li
     && sleep 3 \
     && mv /duckdb/duckdb /duckdb/duckdb-cli
 
-# RUN mkdir -m 777 /home/jovyan/work
+RUN chmod -R 777 /home/jovyan/work
 
 COPY ./.bashrc /home/jovyan/.bashrc
