@@ -10,6 +10,7 @@ mysql/duckdb
 
 spark/tmp
 spark/duckdb
+spark/work
 
 postgres/postgresql
 postgres/tmp
@@ -26,3 +27,4 @@ apache/www/html/ci-commons.zip
 
 deno/www
 deno/www/app-dotlake
+/apache/www/
