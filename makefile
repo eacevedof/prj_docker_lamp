@@ -24,6 +24,12 @@ rebuild-apache: ## rebuild apache container
 	docker-compose up --no-deps -d apache
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-spark: ## rebuild spark container
+	clear
+	docker-compose build spark
+	docker-compose up --no-deps -d spark
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-php74: ## rebuild php-fpm-7.4
 	clear
 	docker-compose up -d --build php-fpm-7.4
