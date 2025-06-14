@@ -107,7 +107,6 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-
   mysql:
     build: ./mysql
     container_name: cont-lr-mysql
@@ -127,11 +126,15 @@ services:
     container_name: cont-lr-spark
     hostname: lr-spark
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      TZ: "UTC"
+      JUPYTER_TOKEN: "tk0000"
+      JUPYTER_PASSWORD: "root"
+
     volumes:
       - ./spark/tmp:/tmp
       - ./spark/duckdb:/duckdb
     ports:
+      - "8888:8888"
       - "4040:4040"
 
   postgres:
