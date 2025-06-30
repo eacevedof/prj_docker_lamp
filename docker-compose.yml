@@ -91,6 +91,16 @@ services:
       - "mid-lznews.local:host-gateway"
       - "host.docker.internal:host-gateway"
 
+  py-3.10:
+    build: ./python/3.10
+    container_name: cont-py-3.10
+    hostname: py-3-10
+    environment:
+      TZ: "UTC"
+    volumes:
+      - ./python/www:/var/www
+      - ./python/cli:/var/cli
+
   ubuntu-deno:
     build: ./deno
     container_name: cont-ubuntu-deno
