@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    -y jq vim wget unzip ca-certificates cron procps moreutils build-essential
+    -y jq vim wget unzip ca-certificates cron procps moreutils bsdmainutils build-essential git
 
 RUN apt-get install -y --no-install-recommends \
        libicu-dev \
