@@ -28,3 +28,6 @@ apache/www/html/ci-commons.zip
 deno/www
 deno/www/app-dotlake
 /apache/www/
+
+python/www
+python/cli

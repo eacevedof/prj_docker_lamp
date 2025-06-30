@@ -45,6 +45,11 @@ rebuild-deno: ## rebuild ubuntu-deno
 	docker-compose up -d --build ubuntu-deno
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-py: ## rebuild py-3.10
+	clear
+	docker-compose up -d --build py-3.10
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
 
@@ -68,6 +73,9 @@ ssh-pg: ## connect to container
 
 ssh-deno: ## connect to deno container
 	docker exec -it --user root cont-ubuntu-deno bash
+
+ssh-py310: ## connect to container cont-py-3.10
+	docker exec -it --user root cont-py-3.10 bash
 
 restart-apache: ## restart apache
 	docker-compose restart apache
