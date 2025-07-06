@@ -45,6 +45,22 @@ rebuild-deno: ## rebuild ubuntu-deno
 	docker-compose up -d --build ubuntu-deno
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-zookeeper: ## zookeeper
+	clear
+	docker-compose up -d --build zookeeper
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-kafka: ## kafka
+	clear
+	docker-compose up -d --build kafka
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-debezium: ## debezium
+	clear
+	docker-compose up -d --build debezium
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+
 rebuild-py: ## rebuild py-3.10
 	clear
 	docker-compose up -d --build py-3.10

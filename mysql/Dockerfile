@@ -16,7 +16,10 @@ RUN echo "disable-log-bin=1" >> /etc/mysql/my.cnf \
     && echo "max_allowed_packet=64M" >> /etc/mysql/my.cnf \
     && echo "sort_buffer_size=8M" >> /etc/mysql/my.cnf \
     && echo "secure_file_priv=/tmp" >> /etc/mysql/my.cnf \
-    && echo "innodb_online_alter_log_max_size=1073741824" >> /etc/mysql/my.cnf
+    && echo "innodb_online_alter_log_max_size=1073741824" >> /etc/mysql/my.cnf \
+    && echo "log-bin=mysql-bin" >> /etc/mysql/my.cnf \
+    && echo "binlog-format=ROW" >> /etc/mysql/my.cnf \
+    && echo "server-id=1" >> /etc/mysql/my.cnf
 
 # https://duckdb.org/docs/guides/file_formats/excel_import.html
 RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip -O /tmp/duckdb_cli.zip \
