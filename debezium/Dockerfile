@@ -6,7 +6,7 @@ RUN microdnf update -y && microdnf install -y curl
 
 RUN mkdir -p /debezium/config
 
-COPY ./debezium/config/mysql-connector.json /debezium/config/mysql-connector.json
+COPY ./config/mysql-connector.json /debezium/config/mysql-connector.json
 
 RUN curl -X POST -H "Content-Type: application/json" \
   --data @/debezium/config/mysql-connector.json \
