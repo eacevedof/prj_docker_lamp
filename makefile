@@ -40,6 +40,11 @@ rebuild-php83: ## rebuild php-fpm-8.3
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-redis: ## rebuild redis
+	clear
+	docker-compose up -d --build redis
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-deno: ## rebuild ubuntu-deno
 	clear
 	docker-compose up -d --build ubuntu-deno
@@ -53,28 +58,31 @@ rebuild-py: ## rebuild py-3.10
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
 
-ssh-apache: ## connect to container cont-lr-apache
+ssh-apache: ## connect to  cont-lr-apache
 	docker exec -it --user root cont-lr-apache bash
 
-ssh-php74: ## connect to container cont-php-fpm-7.4
+ssh-php74: ## connect to  cont-php-fpm-7.4
 	docker exec -it --user root cont-php-fpm-7.4 bash
 
-ssh-php83: ## connect to container cont-php-fpm-8.3
+ssh-php83: ## connect to  cont-php-fpm-8.3
 	docker exec -it --user root cont-php-fpm-8.3 bash
 
-ssh-mysql: ## connect to container
+ssh-redis: ## connect to  cont-redis
+	docker exec -it --user root cont-redis sh
+
+ssh-mysql: ## connect to cont-lr-mysql
 	docker exec -it --user root cont-lr-mysql bash
 
-ssh-spark: ## connect to container
+ssh-spark: ## connect to cont-lr-spark
 	docker exec -it --user root cont-lr-spark bash
 
-ssh-pg: ## connect to container
+ssh-pg: ## connect to cont-db-postgres
 	docker exec -it --user root cont-db-postgres bash
 
 ssh-deno: ## connect to deno container
 	docker exec -it --user root cont-ubuntu-deno bash
 
-ssh-py310: ## connect to container cont-py-3.10
+ssh-py310: ## connect to  cont-py-3.10
 	docker exec -it --user root cont-py-3.10 bash
 
 restart-apache: ## restart apache
