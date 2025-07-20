@@ -40,6 +40,11 @@ rebuild-php83: ## rebuild php-fpm-8.3
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-redis: ## rebuild redis
+	clear
+	docker-compose up -d --build redis
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-deno: ## rebuild ubuntu-deno
 	clear
 	docker-compose up -d --build ubuntu-deno
@@ -61,6 +66,9 @@ ssh-php74: ## connect to container cont-php-fpm-7.4
 
 ssh-php83: ## connect to container cont-php-fpm-8.3
 	docker exec -it --user root cont-php-fpm-8.3 bash
+
+ssh-redis: ## connect to container cont-redis
+	docker exec -it --user root cont-redis bash
 
 ssh-mysql: ## connect to container
 	docker exec -it --user root cont-lr-mysql bash

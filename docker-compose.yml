@@ -174,7 +174,8 @@ services:
       - 7000:8080
 
   redis:
-    image: ./redis
+    build:
+      context: ./redis
     container_name: cont-lr-redis
     hostname: lr-redis
     environment:
