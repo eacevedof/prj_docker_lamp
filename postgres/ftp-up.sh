@@ -7,5 +7,6 @@ echo "etluser:etl" | chpasswd
 echo "- creating permissions for etl user"
 chown -R etluser:etluser /etl && chmod -R u+rwX /etl
 
-service vsftpd start
+service vsftpd restart
 
+cd /etl

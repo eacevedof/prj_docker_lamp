@@ -21,4 +21,5 @@ alias ftp-up='/etl/ftp-up.sh'
 
 clear
 # pg-root
+ftp-up
 
