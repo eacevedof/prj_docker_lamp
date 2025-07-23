@@ -21,7 +21,7 @@ RUN mkdir -p /etl/out && chmod 666 /etl/out
 COPY ftp-up.sh /etl/ftp-up.sh
 RUN chmod +x /etl/ftp-up.sh
 
-# COPY vsftpd.conf /etc/vsftpd.conf
+COPY vsftpd.conf /etc/vsftpd.conf
 
 # service vsftpd start
 # CMD ["service", "vsftpd", "start"]
