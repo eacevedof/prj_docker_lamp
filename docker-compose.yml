@@ -164,7 +164,7 @@ services:
       - ./postgres/postgresql/data:/var/lib/postgresql/data
       - ./postgres/tmp:/tmp
     ports:
-      # - "2021:21"
+      - "2021:21"
       - "5432:5432"
 
   postgres-adm:
