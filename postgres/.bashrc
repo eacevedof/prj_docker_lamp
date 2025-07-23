@@ -17,7 +17,8 @@ alias pg-conf='clear && cd /etc/postgressql && ll && cat /var/lib/postgresql/dat
 alias pg-data='clear && cd /var/lib/postgresql/data && ll'
 alias pg-vars='clear && psql -U postgres -c "SHOW ALL;" -h localhost -d db_vector > /tmp/postgres-vars.sql && cat /tmp/postgres-vars.sql'
 alias tmp='clear && cd /tmp && ll'
+alias ftp-up='/etl/ftp-up.sh'
 
 clear
-pg-root
+# pg-root
 

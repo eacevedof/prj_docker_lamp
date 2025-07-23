@@ -40,6 +40,11 @@ rebuild-php83: ## rebuild php-fpm-8.3
 	docker-compose up -d --build php-fpm-8.3
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-pg: ## rebuild postgres
+	clear
+	docker-compose up -d --build postgres
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-redis: ## rebuild redis
 	clear
 	docker-compose up -d --build redis
