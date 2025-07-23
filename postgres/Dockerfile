@@ -23,3 +23,4 @@ RUN chmod +x /etl/ftp-up.sh
 
 COPY vsftpd.conf /etc/vsftpd.conf
 RUN chmod 666 /etc/vsftpd.conf
+# RUN chmod 777 /var/run/vsftpd/empty
