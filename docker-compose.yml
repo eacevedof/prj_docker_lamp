@@ -177,6 +177,7 @@ services:
     ports:
       - "2021:21"
       - "5432:5432"
+      - "6000-6010:6000-6010"
 
   postgres-adm:
     image: adminer

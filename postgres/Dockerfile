@@ -15,12 +15,12 @@ RUN chmod -R 777 /tmp
 COPY ./.bashrc /root/.bashrc
 
 RUN apt-get -y install vsftpd
-RUN mkdir -p /etl/in && chmod 666 /etl/in
-RUN mkdir -p /etl/out && chmod 666 /etl/out
+RUN mkdir -p /ftp/logs && chmod 777 /ftp/logs
+RUN mkdir -p /ftp/etl/in && chmod 777 /ftp/etl/in
+RUN mkdir -p /ftp/etl/out && chmod 777 /ftp/etl/out
 
-COPY ftp-up.sh /etl/ftp-up.sh
-RUN chmod +x /etl/ftp-up.sh
+COPY ftp-up.sh /ftp/ftp-up.sh
+RUN chmod +x /ftp/ftp-up.sh
 
 COPY vsftpd.conf /etc/vsftpd.conf
 RUN chmod 666 /etc/vsftpd.conf
-# RUN chmod 777 /var/run/vsftpd/empty

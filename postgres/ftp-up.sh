@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 echo "- creating etl user for ftp access"
-useradd -m -d /etl -s /bin/bash etluser && \
-echo "etluser:etl" | chpasswd
+useradd -m -d /ftp/etl -s /bin/bash etlu && \
+echo "etlu:etlp" | chpasswd
 
 echo "- creating permissions for etl user"
-chown -R etluser:etluser /etl && chmod -R u+rwX /etl
+chown -R etlu:etlu /ftp/etl && chmod -R 777 /ftp/etl
 
-service vsftpd start
+cd /ftp/etl/in
+
+service vsftpd restart
 
