@@ -30,6 +30,11 @@ rebuild-spark: ## rebuild spark container
 	docker-compose up --no-deps -d spark
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-php73: ## rebuild php-fpm-7.3
+	clear
+	docker-compose up -d --build php-fpm-7.3
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-php74: ## rebuild php-fpm-7.4
 	clear
 	docker-compose up -d --build php-fpm-7.4
@@ -65,6 +70,9 @@ destroy-all: ## destroy container and image
 
 ssh-apache: ## connect to  cont-lr-apache
 	docker exec -it --user root cont-lr-apache bash
+
+ssh-php73: ## connect to  cont-php-fpm-7.3
+	docker exec -it --user root cont-php-fpm-7.3 bash
 
 ssh-php74: ## connect to  cont-php-fpm-7.4
 	docker exec -it --user root cont-php-fpm-7.4 bash

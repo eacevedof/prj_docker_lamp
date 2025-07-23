@@ -15,8 +15,8 @@ services:
       - "8086:8086" #
 
       - "8090:8090" # phpinfo
-      - "8091:8091" #
-      - "8092:8092" #
+      - "8091:8091" # yii-api
+      - "8092:8092" # yii-gdpr
       - "8093:8093" #
 
       - "3001:3001" # base
@@ -52,6 +52,17 @@ services:
       - "ticketing-api.local:host-gateway"
       - "yii-api.local:host-gateway"
       - "host.docker.internal:host-gateway"
+
+  php-fpm-7.3:
+    build: ./fpm/7.3
+    container_name: cont-php-fpm-7.3
+    hostname: php-fpm-7-3
+    environment:
+      TZ: "UTC"
+      # XDEBUG: 9003 PHP_IDE_CONFIG necesario para command-line debugging
+      PHP_IDE_CONFIG: serverName=ServXdebug3
+    volumes:
+      - ./apache/www:/var/www
 
   php-fpm-7.4:
     build: ./fpm/7.4
