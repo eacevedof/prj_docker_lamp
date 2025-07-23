@@ -12,11 +12,16 @@ RUN apt-get update \
 RUN chmod -R 777 /var/lib/postgresql
 RUN chmod -R 777 /tmp
 
-RUN apt-get -y install vsftpd
-RUN mkdir -p /etl/in
-RUN mkdir -p /etl/out
-
 COPY ./.bashrc /root/.bashrc
+
+RUN apt-get -y install vsftpd
+RUN mkdir -p /etl/in && chmod 666 /etl/in
+RUN mkdir -p /etl/out && chmod 666 /etl/out
+
+COPY ftp-up.sh /etl/ftp-up.sh
+RUN chmod +x /etl/ftp-up.sh
+
+# COPY vsftpd.conf /etc/vsftpd.conf
 
 # service vsftpd start
 # CMD ["service", "vsftpd", "start"]
