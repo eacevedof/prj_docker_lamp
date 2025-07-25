@@ -31,3 +31,7 @@ deno/www/app-dotlake
 
 python/www
 python/cli
+
+n8n/data
+/n8n/data/
+/redis/data/
