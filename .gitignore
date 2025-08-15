@@ -35,3 +35,6 @@ python/cli
 n8n/data
 /n8n/data/
 /redis/data/
+
+CLAUDE.md
+*.ia.md
