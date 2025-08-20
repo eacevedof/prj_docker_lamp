@@ -27,6 +27,6 @@ RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
 RUN sed -i 's/\r$//' /root/.bashrc
 
-echo "deno installed successfully. Starting deno app"
+CMD "echo deno installed successfully. Starting deno app"
 CMD ["bash", "/www/start-deno-app.sh"]
 #CMD ["tail", "-f", "/dev/null"]
