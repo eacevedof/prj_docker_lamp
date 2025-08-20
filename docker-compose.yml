@@ -129,6 +129,11 @@ services:
       - "5700:5700"
       - "5800:5800"
       - "5900:5900" # ms antiphising
+
+    develop:
+      watch:
+        - path: ./deno/www/app-ms-antiphising/
+          action: rebuild
     extra_hosts:
       - "host.docker.internal:host-gateway"
 

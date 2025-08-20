@@ -60,6 +60,12 @@ rebuild-deno: ## rebuild ubuntu-deno
 	docker-compose up -d --build ubuntu-deno
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-deno-watch: ## stop ubuntu-deno y restart con watch
+	clear
+	docker-compose stop ubuntu-deno
+	docker-compose watch ubuntu-deno
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 rebuild-py: ## rebuild py-3.10
 	clear
 	docker-compose up -d --build py-3.10
