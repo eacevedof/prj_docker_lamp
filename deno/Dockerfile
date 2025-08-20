@@ -14,6 +14,7 @@ RUN apt-get install -y --no-install-recommends \
        unzip \
        git \
        curl \
+       ftp \
        lftp
 
 RUN curl -fsSL https://deno.land/install.sh | sh
