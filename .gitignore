@@ -15,6 +15,9 @@ spark/work
 postgres/postgresql
 postgres/tmp
 
+app_shared/*
+!app_shared/.gitkeep
+
 apache/www/app-reporting
 apache/www/*/
 !apache/www/html/

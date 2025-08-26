@@ -25,3 +25,6 @@ RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-li
     && mv /duckdb/duckdb /duckdb/duckdb-cli
 
 COPY ./.bashrc /root/.bashrc
+
+RUN mkdir /app_shared
+RUN chmod -R 777 /app_shared

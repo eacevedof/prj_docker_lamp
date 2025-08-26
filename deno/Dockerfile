@@ -15,7 +15,8 @@ RUN apt-get install -y --no-install-recommends \
        git \
        curl \
        ftp \
-       lftp
+       lftp \
+       openssh-client
 
 RUN curl -fsSL https://deno.land/install.sh | sh
 
@@ -28,6 +29,10 @@ RUN mv /root/.bashrc /root/.bashrc.bak
 COPY ./.bashrc /root/.bashrc
 RUN sed -i 's/\r$//' /root/.bashrc
 
-CMD "echo deno installed successfully. Starting deno app"
-CMD ["bash", "/www/start-deno-app.sh"]
-#CMD ["tail", "-f", "/dev/null"]
+RUN mkdir /app_shared
+RUN chmod -R 777 /app_shared
+
+# CMD "echo deno installed successfully. Starting deno app"
+# CMD ["bash", "/www/start-deno-app.sh"]
+CMD ["deno", "repl"]
+CMD ["tail", "-f", "/dev/null"]

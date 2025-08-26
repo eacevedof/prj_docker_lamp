@@ -19,6 +19,9 @@ RUN mkdir -p /ftp/logs && chmod 777 /ftp/logs
 RUN mkdir -p /ftp/etl/in && chmod 777 /ftp/etl/in
 RUN mkdir -p /ftp/etl/out && chmod 777 /ftp/etl/out
 
+RUN mkdir /app_shared
+RUN chmod -R 777 /app_shared
+
 COPY ftp-up.sh /ftp/ftp-up.sh
 RUN chmod +x /ftp/ftp-up.sh
 

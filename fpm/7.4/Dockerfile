@@ -11,6 +11,15 @@ RUN apt-get install -y --no-install-recommends \
 RUN pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
 
+# para la funcion ssh2_connect que se usa en TransferData.php
+RUN apt-get update && \
+    apt-get install -y gcc make libssh2-1-dev libssh2-1
+
+RUN curl http://pecl.php.net/get/ssh2-1.2.tgz -o ssh2.tgz && \
+    pecl install ssh2 ssh2.tgz && \
+    docker-php-ext-enable ssh2 && \
+    rm -rf ssh2.tgz
+
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_HOME=/composer
 RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php \

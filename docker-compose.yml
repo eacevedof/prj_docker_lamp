@@ -123,6 +123,7 @@ services:
       TZ: "UTC"
     volumes:
       - ./deno/www:/www
+      - ../app_shared:/app_shared
     ports:
       # - "5500:5500"
       - "5600:5600"
@@ -130,10 +131,6 @@ services:
       - "5800:5800"
       - "5900:5900" # ms antiphising
 
-    develop:
-      watch:
-        - path: ./deno/www/app-ms-antiphising/
-          action: rebuild
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
@@ -182,6 +179,7 @@ services:
     volumes:
       - ./postgres/postgresql/data:/var/lib/postgresql/data
       - ./postgres/tmp:/tmp
+      - ../app_shared:/app_shared
     ports:
       - "2021:21"
       - "5432:5432"
