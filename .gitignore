@@ -41,3 +41,6 @@ n8n/data
 
 CLAUDE.md
 *.ia.md
+/kafka/data/
+/kafka/logs/
+./.claude

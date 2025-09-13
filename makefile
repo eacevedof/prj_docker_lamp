@@ -81,6 +81,11 @@ rebuild-n8n: ## rebuild n8n
 	docker-compose up -d --build n8n
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-kafka-br1: ## rebuild kafka-br1 (broker 1)
+	clear
+	docker-compose up -d --build kafka-br1
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
 
@@ -116,6 +121,9 @@ ssh-py310: ## connect to  cont-py-3.10
 
 ssh-n8n: ## connect to  cont-n8n
 	docker exec -it --user root cont-n8n bash
+
+ssh-kafka: ## connect to  cont-n8n
+	docker exec -it --user root cont-kafka-br1 bash
 
 restart-apache: ## restart apache
 	docker-compose restart apache

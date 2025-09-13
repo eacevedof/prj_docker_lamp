@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/projects/prj_python37/kafka/**)",
+      "Bash(chmod:*)",
+      "Bash(docker-compose restart:*)",
+      "Bash(.venv-winScriptspython.exe test-connection.py)",
+      "Bash(.venv-win/Scripts/python.exe test-connection.py:*)",
+      "Bash(docker logs:*)",
+      "Bash(docker-compose:*)",
+      "Bash(.venv-win/Scripts/python.exe simple-test.py:*)",
+      "Bash(.venv-win/Scripts/python.exe:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
