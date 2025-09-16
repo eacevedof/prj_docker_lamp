@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(../.venv-win/Scripts/python.exe start_cdc_worker.py)",
+      "Read(//c/projects/prj_python37/kafka_cdc/**)",
+      "Bash(./create-topics.sh:*)",
+      "Bash(create-topics.bat)",
+      "Bash(docker exec:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
