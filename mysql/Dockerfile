@@ -29,12 +29,14 @@ RUN echo "[mysqld]" > /etc/mysql/conf.d/custom.cnf \
     && echo "key_buffer_size=256M" >> /etc/mysql/conf.d/custom.cnf \
     && echo "myisam_sort_buffer_size=64M" >> /etc/mysql/conf.d/custom.cnf \
     && echo "" >> /etc/mysql/conf.d/custom.cnf \
+
     && echo "# General stability" >> /etc/mysql/conf.d/custom.cnf \
     && echo "innodb_file_per_table=1" >> /etc/mysql/conf.d/custom.cnf \
     && echo "innodb_flush_log_at_trx_commit=2" >> /etc/mysql/conf.d/custom.cnf \
     && echo "innodb_buffer_pool_size=1024M" >> /etc/mysql/conf.d/custom.cnf \
     && echo "innodb_online_alter_log_max_size=1073741824" >> /etc/mysql/conf.d/custom.cnf \
     && echo "" >> /etc/mysql/conf.d/custom.cnf \
+
     && echo "# Network and timeouts" >> /etc/mysql/conf.d/custom.cnf \
     && echo "net_read_timeout=600" >> /etc/mysql/conf.d/custom.cnf \
     && echo "net_write_timeout=600" >> /etc/mysql/conf.d/custom.cnf \
@@ -42,6 +44,7 @@ RUN echo "[mysqld]" > /etc/mysql/conf.d/custom.cnf \
     && echo "interactive_timeout=3600" >> /etc/mysql/conf.d/custom.cnf \
     && echo "max_allowed_packet=128M" >> /etc/mysql/conf.d/custom.cnf \
     && echo "" >> /etc/mysql/conf.d/custom.cnf \
+
     && echo "# Memory and disk management" >> /etc/mysql/conf.d/custom.cnf \
     && echo "tmpdir=/tmp" >> /etc/mysql/conf.d/custom.cnf \
     && echo "tmp_table_size=64M" >> /etc/mysql/conf.d/custom.cnf \
@@ -49,13 +52,15 @@ RUN echo "[mysqld]" > /etc/mysql/conf.d/custom.cnf \
     && echo "sort_buffer_size=8M" >> /etc/mysql/conf.d/custom.cnf \
     && echo "secure_file_priv=/tmp" >> /etc/mysql/conf.d/custom.cnf \
     && echo "" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "# Binary logging for CDC" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "server-id=1" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "log-bin=mysql-bin" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "expire_logs_days=1" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "binlog_format=ROW" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "max_binlog_size=100M" >> /etc/mysql/conf.d/custom.cnf \
-    && echo "binlog_expire_logs_seconds=86400" >> /etc/mysql/conf.d/custom.cnf
+
+    && echo "# Binary logging for CDC (disabled)" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# server-id=1" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# log-bin=mysql-bin" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# expire_logs_days=1" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# binlog_format=ROW" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# max_binlog_size=100M" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "# binlog_expire_logs_seconds=86400" >> /etc/mysql/conf.d/custom.cnf \
+    && echo "skip-log-bin" >> /etc/mysql/conf.d/custom.cnf
 
 COPY ./.bashrc /root/.bashrc
 
