@@ -7,16 +7,17 @@ RUN apt-get update \
     -y jq vim wget unzip ca-certificates cron procps moreutils bsdmainutils build-essential git
 
 RUN apt-get install -y --no-install-recommends \
-       libicu-dev \
-       zlib1g-dev \
-       libpng-dev \
-       libzip-dev \
-       unzip \
-       git \
-       curl \
-       ftp \
-       lftp \
-       openssh-client
+      libicu-dev \
+      zlib1g-dev \
+      libpng-dev \
+      libzip-dev \
+      unzip \
+      git \
+      curl \
+      ftp \
+      lftp \
+      openssh-client \
+      bash-completion
 
 RUN curl -fsSL https://deno.land/install.sh | sh
 
