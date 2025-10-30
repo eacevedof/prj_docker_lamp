@@ -125,7 +125,7 @@ services:
       - ./deno/www:/www
       - ../app_shared:/app_shared
     ports:
-      # - "5500:5500"
+      - "5500:5500" # con .lake
       - "5600:5600"
       - "5700:5700"
       - "5800:5800"

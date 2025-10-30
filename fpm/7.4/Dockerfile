@@ -11,6 +11,12 @@ RUN apt-get install -y --no-install-recommends \
 RUN pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
 
+# tr-alert
+RUN apt-get install -y --no-install-recommends \
+    -y dnsutils python3-pip nmap
+
+RUN pip3 install -U checkdmarc
+
 # para la funcion ssh2_connect que se usa en TransferData.php
 RUN apt-get update && \
     apt-get install -y gcc make libssh2-1-dev libssh2-1
