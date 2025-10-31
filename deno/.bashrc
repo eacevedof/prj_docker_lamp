@@ -2,7 +2,6 @@
 export PS1="\[\e[38;5;165m\]\u\[\e[38;5;171m\]@\[\e[38;5;213m\]\h \[\e[38;5;219m\]\w \[\033[0m\]$ "
 
 alias home='cd $HOME'
-
 export SHELL=/bin/bash
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors)"
@@ -31,5 +30,7 @@ run-deno() {
     clear && cd "/www/app-$app_name" && deno task dev
 }
 alias run-deno='run-deno'
+
+source /usr/share/bash-completion/bash_completion
 
 cd /www/; ll
