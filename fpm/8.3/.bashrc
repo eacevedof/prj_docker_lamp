@@ -54,7 +54,7 @@ aliases() {
 }
 alias aliases='aliases'
 
-cd /var/www/
+[[ "$PWD" == "/" ]] && cd /var/www/
 
 # =========== 8.3 only ===========
 artisan() {

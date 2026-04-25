@@ -12,8 +12,8 @@ RUN pecl install xdebug-2.9.8 \
     && docker-php-ext-enable xdebug
 
 # tr-alert
-RUN apt-get install -y --no-install-recommends \
-    -y dnsutils python3-pip nmap
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    dnsutils python3-pip nmap
 
 RUN pip3 install -U checkdmarc
 
@@ -21,10 +21,16 @@ RUN pip3 install -U checkdmarc
 RUN apt-get update && \
     apt-get install -y gcc make libssh2-1-dev libssh2-1
 
-RUN curl http://pecl.php.net/get/ssh2-1.2.tgz -o ssh2.tgz && \
-    pecl install ssh2 ssh2.tgz && \
-    docker-php-ext-enable ssh2 && \
-    rm -rf ssh2.tgz
+RUN cd /tmp && \
+    pecl download ssh2-1.0 && \
+    tar -xzf ssh2-1.0.tgz && \
+    cd ssh2-1.0 && \
+    perl -i -pe 's/(?<!ZSTR_VAL\()resource->(host|path|user|pass)(?=[\[,\)])/ZSTR_VAL(resource->$1)/g' ssh2_fopen_wrappers.c ssh2_sftp.c && \
+    phpize && \
+    ./configure && \
+    make CFLAGS="-Wno-incompatible-pointer-types" && \
+    make install && \
+    docker-php-ext-enable ssh2
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_HOME=/composer

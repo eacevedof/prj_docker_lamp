@@ -53,4 +53,4 @@ aliases() {
 }
 alias aliases='aliases'
 
-cd /var/www/
+[[ "$PWD" == "/" ]] && cd /var/www/
