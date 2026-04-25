@@ -56,10 +56,3 @@ aliases() {
 alias aliases='aliases'
 
 [[ "$PWD" == "/" ]] && cd /var/www/
-
-# make tab completion
-_make_targets() {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=($(compgen -W "$(grep -oE '^[a-zA-Z0-9_-]+:' Makefile makefile 2>/dev/null | sed 's/://')" -- "$cur"))
-}
-complete -F _make_targets make
