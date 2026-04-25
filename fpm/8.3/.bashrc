@@ -15,6 +15,8 @@
 # ===========
 # @eaf
 # ===========
+# bash-completion
+[[ -f /etc/bash_completion ]] && . /etc/bash_completion
 # https://robotmoon.com/bash-prompt-generator
 export PS1="\[\e[38;5;46m\]\u\[\e[38;5;190m\]@\[\e[38;5;121m\]\h \[\e[38;5;195m\]\w \[\033[0m\]$ "
 
@@ -68,3 +70,10 @@ lz() {
     php artisan lz:"$arg"
 }
 alias lz='lz'
+
+# make tab completion
+_make_targets() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=($(compgen -W "$(grep -oE '^[a-zA-Z0-9_-]+:' Makefile makefile 2>/dev/null | sed 's/://')" -- "$cur"))
+}
+complete -F _make_targets make
