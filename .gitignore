@@ -45,3 +45,17 @@ CLAUDE.md
 /kafka/logs/
 ./.claude
 .claude
+/.claude/
+
+# ── SaaS v3 (java / next / postgres-v3) ──
+# Solo se versiona el contexto de build (Dockerfile, .bashrc, maven/settings.xml).
+# Caches y datos de runtime fuera del repo:
+java/*/maven/repository
+java/*/maven/wrapper
+java/*/maven/settings.xml
+next/*/npm
+postgres-v3/data
+postgres-v3/tmp
+
+# fichero residual de windows (redirecciones a NUL)
+nul

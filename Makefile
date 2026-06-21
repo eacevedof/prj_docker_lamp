@@ -86,6 +86,31 @@ rebuild-kafka-br1: ## rebuild kafka-br1 (broker 1)
 	docker-compose up -d --build kafka-br1
 	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
+rebuild-v3: ## rebuild all saas-v3 containers (pg + servicehub + backend + front)
+	clear
+	docker-compose up -d --build v3-postgres v3-servicehub v3-backend v3-front
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-v3-pg: ## rebuild v3-postgres
+	clear
+	docker-compose up -d --build v3-postgres
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-v3-servicehub: ## rebuild v3-servicehub
+	clear
+	docker-compose up -d --build v3-servicehub
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-v3-backend: ## rebuild v3-backend
+	clear
+	docker-compose up -d --build v3-backend
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+rebuild-v3-front: ## rebuild v3-front
+	clear
+	docker-compose up -d --build v3-front
+	@docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
 destroy-all: ## destroy container and image
 	docker-compose down --rmi all
 
@@ -124,6 +149,18 @@ ssh-n8n: ## connect to  cont-n8n
 
 ssh-kafka: ## connect to  cont-n8n
 	docker exec -it --user root cont-kafka-br1 bash
+
+ssh-v3-pg: ## connect to cont-v3-postgres
+	docker exec -it --user root cont-v3-postgres bash
+
+ssh-v3-servicehub: ## connect to cont-v3-servicehub
+	docker exec -it --user root cont-v3-servicehub bash
+
+ssh-v3-backend: ## connect to cont-v3-backend
+	docker exec -it --user root cont-v3-backend bash
+
+ssh-v3-front: ## connect to cont-v3-front
+	docker exec -it --user root cont-v3-front bash
 
 restart-apache: ## restart apache
 	docker-compose restart apache

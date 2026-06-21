@@ -261,3 +261,89 @@ services:
       - ../app_shared:/app_shared
     ports:
       - "9092:9092"
+
+  # ───────────────────────── SaaS v3 (laz/v3) ─────────────────────────
+  # El código fuente vive fuera de este repo de infra, en ../laz/v3
+  # (backend-v3, servicehub-v3, frontend-v3) y se monta como volúmenes.
+  # Los .env con secretos viven en cada repo fuente y se cargan vía env_file.
+  v3-postgres:
+    build: ./postgres-v3
+    restart: always
+    container_name: cont-v3-postgres
+    hostname: v3-postgres
+    environment:
+      LANG: C.UTF-8
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./postgres-v3/data:/var/lib/postgresql
+      - ./postgres-v3/tmp:/tmp
+    ports:
+      - "5433:5432" # v3 postgres (host 5433)
+
+  v3-servicehub:
+    build: ./java/v3-servicehub
+    container_name: cont-v3-servicehub
+    hostname: v3-servicehub
+    environment:
+      TZ: "UTC"
+    env_file:
+      - ../laz/v3/servicehub-v3/.env
+    volumes:
+      - ./java/v3-servicehub/maven:/root/.m2
+      - ../laz/v3/servicehub-v3/.mvn:/app/.mvn
+      - ../laz/v3/servicehub-v3/mvnw:/app/mvnw
+      - ../laz/v3/servicehub-v3/pom.xml:/app/pom.xml
+      - ../laz/v3/servicehub-v3/src:/app/src
+      - ../laz/v3/servicehub-v3/scripts/docker-entrypoint-dev.sh:/app/docker-entrypoint-dev.sh
+    ports:
+      - "8079:8080"   # http
+      - "35729:35729" # spring-devtools livereload
+    depends_on:
+      - v3-postgres
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  v3-backend:
+    build: ./java/v3-backend
+    container_name: cont-v3-backend
+    hostname: v3-backend
+    environment:
+      TZ: "UTC"
+    env_file:
+      - ../laz/v3/backend-v3/.env
+    volumes:
+      - ./java/v3-backend/maven:/root/.m2
+      - ../laz/v3/backend-v3/.mvn:/app/.mvn
+      - ../laz/v3/backend-v3/mvnw:/app/mvnw
+      - ../laz/v3/backend-v3/pom.xml:/app/pom.xml
+      - ../laz/v3/backend-v3/src:/app/src
+      - ../laz/v3/backend-v3/scripts/docker-entrypoint-dev.sh:/app/docker-entrypoint-dev.sh
+    ports:
+      - "8095:8080"   # http
+      - "35730:35729" # spring-devtools livereload
+    depends_on:
+      - v3-postgres
+      - v3-servicehub
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  v3-front:
+    build: ./next/v3-front
+    container_name: cont-v3-front
+    hostname: v3-front
+    environment:
+      TZ: "UTC"
+    env_file:
+      - ../laz/v3/frontend-v3/.env.local
+    volumes:
+      - ../laz/v3/frontend-v3:/app
+      - ./next/v3-front/npm:/root/.npm
+      - /app/.next
+      - /app/node_modules
+    ports:
+      - "3038:3000" # next dev
+    depends_on:
+      - v3-backend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
